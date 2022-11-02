@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: secret
+    url: jdbc:postgresql://localhost:6432/postgres
+    username: postgres
+  liquibase:
+    change-log: classpath:migration/liquibase-master.xml
+  thymeleaf:
+    prefix: classpath:/views/
