@@ -12,6 +12,7 @@
 <body class="bg-light">
 <div class="container">
 
+    <!--NAVBAR-->
     <div class="row mt-3">
         <div class="col-1"></div>
         <div class="container col-10 bg-white gx-0">
@@ -36,6 +37,7 @@
         </div>
         <div class="col-1"></div>
     </div>
+    <!--NAVBAR lõppeb-->
 
 
 
@@ -56,32 +58,33 @@
     </div>
     <div class="row mt-3">
     <div class="col-1"></div>
+        <!--Ürituste tabel-->
     <div class="col-5 gx-0">
     <table style="width:98%">
         <thead>
         <tr>
             <th colspan="5" class="text-center bg-primary text-white p-4">Tulevased Üritused</th>
-
         </tr>
         </thead>
             <tbody>
-
-
             <tr th:each="event : ${events}">
                 <td th:text="${event.name}"></td>
                 <td th:text="${event.place}"></td>
                 <td th:text="${#calendars.format(event.timestamp, 'dd.MM.yyyy HH:mm')}"></td>
                 <td><a class="nav-link" href="participants">Osavõtjad</a></td>
+                <!--Ürituste kustutamine andmebaasist id järgi-->
                 <td>
                     <a th:href="@{deleteEvent(eventId=${event.id})}"><button class="btn"><img src="/pildid/remove.svg">
                     </button></a>
                 </td>
-
+                <!--Ürituste kustutamine andmebaasist id järgi-->
             </tr>
             </tbody>
     </table>
     </div>
+        <!--Ürituste tabel-->
 
+        <!--Toimunud ürituste tabel-->
     <div class="col-5 gx-0 d-flex flex-row-reverse">
         <table style="width:98%">
             <thead>
@@ -90,19 +93,21 @@
             </tr>
             </thead>
             <tbody>
-
+            <!--
             <tr th:each="event : ${events}">
                 <td th:text="${event.name}"></td>
                 <td th:text="${event.place}"></td>
                 <td th:text="${#calendars.format(event.timestamp, 'dd.MM.yyyy HH:mm')}"></td>
                 <td><a class="nav-link" href="participants">Osavõtjad</a></td>
-            </tr>
+            </tr>-->
             </tbody>
         </table>
     </div>
     </div>
+        <!--Toimunud ürituste tabel-->
 
 
+        <!--Footer-->
 <div class="row mt-3">
     <div class="col-1"></div>
     <footer class="col-10 bg-secondary  text-white mt-5">

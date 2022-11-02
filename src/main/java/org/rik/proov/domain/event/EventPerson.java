@@ -1,10 +1,10 @@
 package org.rik.proov.domain.event;
 
-import org.springframework.context.annotation.Lazy;
+
 
 import javax.persistence.*;
 import java.math.BigInteger;
-import java.util.List;
+
 
 @Entity
 public class EventPerson {

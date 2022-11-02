@@ -8,13 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Path;
+
+
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Map;
+
 
 @Controller
 public class EventController {
@@ -54,10 +54,6 @@ public class EventController {
 
     @RequestMapping("/participants")
     String addParticipants(Model model) {
-        /**CreateEventPersonForm personForm = new CreateEventPersonForm();
-        personForm.setEventId(@PathVariable());
-        model.addAttribute("participants", personForm);
-        model.addAttribute("person", new CreateEventForm());**/
         model.addAttribute("participants", new CreateEventPersonForm());
         model.addAttribute("companies", new CreateEventCompanyForm());
         model.addAttribute("personEvents", service.getAllPersonEvents());
@@ -72,12 +68,6 @@ public class EventController {
             return "event/addParticipants";}
         service.saveEventPerson(form);
         return "event/addParticipants";}
-
-/**@RequestMapping("/companies")
-    String addCompany(Model model) {
-        model.addAttribute("companies", new CreateEventCompanyForm());
-        return "event/addCompanies";
-    }**/
 
     @PostMapping("/companies")
     String addCompanies(@ModelAttribute("companies") @Valid CreateEventCompanyForm form, BindingResult result) {

@@ -30,6 +30,7 @@
 <body class="bg-light">
 <div class="container">
 
+<!--NAVBAR-->
     <div class="row mt-3">
       <div class="col-1"></div>
       <div class="container col-10 bg-white gx-0">
@@ -54,6 +55,7 @@
       </div>
       <div class="col-1"></div>
     </div>
+  <!--NAVBAR lõppeb-->
 
   <div class="row mt-3 ">
     <div class="col-1"></div>
@@ -87,6 +89,7 @@
     <div class="col-3 bg-white"></div>
     <div class="col-4 bg-white">
 
+      <!--Tabel andmebaasist inimeste ja ettevõtete kohta-->
     <table>
       <tbody>
       <tr th:each="event_person : ${personEvents}">
@@ -94,12 +97,12 @@
         <td th:text="${event_person.lastName}"></td>
         <td th:text="${event_person.ssn}"></td>
 
-
+        <!--Inimeste kustutamine andmebaasist id järgi-->
         <td>
           <a th:href="@{deleteEventPerson(eventPersonId=${event_person.id})}"><button class="btn"><img src="/pildid/remove.svg">
           </button></a>
         </td>
-
+        <!--Inimeste kustutamine andmebaasist id järgi-->
 
       </tr>
 
@@ -108,11 +111,14 @@
         <td th:text="${event_company.name}"></td>
         <td th:text="${event_company.registerCode}"></td>
         <td th:text="${event_company.participantsSum}"></td>
+
+        <!--Ettevõtete kustutamine andmebaasist id järgi-->
         <td>
           <a th:href="@{deleteEventCompany(eventCompanyId=${event_company.id})}"><button class="btn"><img src="/pildid/remove.svg">
           </button></a>
+        </td>
       </tr>
-
+        <!--Ettevõtete kustutamine andmebaasist id järgi-->
 
       </tbody>
     </table>
@@ -139,15 +145,12 @@
             Ettevõte
 
 
-
+    <!--Inimeste ja ettevõtete lisamine andmebaasi-->
 
 <form id="content1" th:object="${participants}" th:action="@{/participants}" method="post">
 
   <input th:field="*{id}" type="hidden">
 
-  <!--
-  <input th:field="*{eventId}" type="hidden">
-  -->
 
   <div class="row mt-3 ">
     <div class="col-3"></div>
@@ -264,6 +267,8 @@
   </div>
 </div>
   </div>
+
+  <!--Footer-->
   <div class="row mt-3">
     <div class="col-1"></div>
     <footer class="col-10 bg-secondary  text-white mt-5">
