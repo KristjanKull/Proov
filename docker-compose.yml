@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  trial-db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=secret
+    ports:
+      - 6432:5432
